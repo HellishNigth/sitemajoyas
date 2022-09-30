@@ -81,7 +81,7 @@
                     <th>Ultimo Login</th>
                     <th>Rol</th>
                     <th>Activo</th>
-                    <th colspan="3">Acciones</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             @foreach ($usuarios as $num=>$usuario)
@@ -92,31 +92,7 @@
                     <td>{{date('d-m-Y H:i:s',strtotime($usuario->ultimo_login))}}</td>
                     <td>{{$usuario->rol->nombre}}</td>
                     <td>{{$usuario->activo?'Si':'No'}}</td>
-
-                    <td class="text-center" style="width:1rem">
-                        <!--Borrar-->
-                        @if(Auth::user()->id!=$usuario->id)
-                        <span data-toggle="tooltip" data-placement="top" title="Borrar Usuario">
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#usuarioBorrarModal{{$usuario->id}}">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </span>
-                        @endif
-                        {{-- <form method="POST" action="{{route('usuarios.destroy',$usuario->id)}}">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Borrar Usuario"><i class="far fa-trash-alt"></i></button>
-                        </form> --}}
-                        {{-- <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Borrar Usuario">
-                            <i class="far fa-trash-alt"></i>
-                        </a> --}}
-                        <!--Borrar-->
-                    </td>
-                    <td class="text-center" style="width:1rem">
-                        <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar Usuario">
-                            <i class="far fa-edit"></i>
-                        </a>
-                    </td>
+                    
                     <td class="text-center" style="width:1rem">
                         @if(Auth::user()->id!=$usuario->id)
                         <form method="POST" action="{{route('usuarios.activar', $usuario->id)}}">
@@ -128,34 +104,7 @@
                         @endif
                     </td>
                 </tr>
-
-                <!-- Modal Borrar Usuario-->
-                <div class="modal fade" id="usuarioBorrarModal{{$usuario->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Borrar Usuario</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="d-flex align-items-center">
-                                    <i class="fas fa-exclamation-circle text-danger mr-2" style="font-size: 2rem"></i>
-                                    ¿Desea borrar el usuario {{$usuario->nombre}}?
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <form method="POST" action="{{route('usuarios.destroy',$usuario->id)}}">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-danger">Borrar Usuario</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             @endforeach
         </table>
     </div>

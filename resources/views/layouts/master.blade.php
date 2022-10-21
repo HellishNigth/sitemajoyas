@@ -43,8 +43,8 @@
                 <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='categorias') active @endif">
                     <a class="nav-link" href="{{route('categorias.index')}}">Categorías</a>
                 </li>
-                <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='fechas') active @endif">
-                  <a class="nav-link" href="#">Clientes</a>
+                <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='clientes') active @endif">
+                  <a class="nav-link" href="{{route('clientes.index')}}">Clientes</a>
                 </li>
                 <li class="nav-item  @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='jugadores') active @endif">
                     <a class="nav-link" href="#">Ventas</a>

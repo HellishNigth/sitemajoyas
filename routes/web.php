@@ -7,6 +7,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ClientesController;
 
 
 
@@ -53,4 +54,8 @@ Route::resource('/usuarios',UsuariosController::class);
 
 Route::resource('/roles',RolesController::class);
 
-
+Route::get('/clientes',[ClientesController::class,'index'])->name('clientes.index');
+Route::post('/clientes',[ClientesController::class, 'store'])->name('clientes.store');
+Route::delete('/clientes/{cliente}',[ClientesController::class, 'destroy'])->name('clientes.destroy');
+Route::get('/clientes/{cliente}/edit',[ClientesController::class, 'edit'])->name('clientes.edit');
+Route::put('/clientes/{cliente}',[ClientesController::class, 'update'])->name('clientes.update');

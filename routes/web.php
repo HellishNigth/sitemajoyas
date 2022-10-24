@@ -8,6 +8,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ProveedoresController;
 
 
 
@@ -59,3 +60,9 @@ Route::post('/clientes',[ClientesController::class, 'store'])->name('clientes.st
 Route::delete('/clientes/{cliente}',[ClientesController::class, 'destroy'])->name('clientes.destroy');
 Route::get('/clientes/{cliente}/edit',[ClientesController::class, 'edit'])->name('clientes.edit');
 Route::put('/clientes/{cliente}',[ClientesController::class, 'update'])->name('clientes.update');
+
+Route::get('/proveedores',[ProveedoresController::class,'index'])->name('proveedores.index');
+Route::post('/proveedores',[ProveedoresController::class, 'store'])->name('proveedores.store');
+Route::delete('/proveedores/{proveedor}',[ProveedoresController::class, 'destroy'])->name('proveedores.destroy');
+Route::get('/proveedores/{proveedor}/edit',[ProveedoresController::class, 'edit'])->name('proveedores.edit');
+Route::put('/proveedores/{proveedor}',[ProveedoresController::class, 'update'])->name('proveedores.update');

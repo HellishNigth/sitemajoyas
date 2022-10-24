@@ -24,12 +24,13 @@ class CategoriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreCat' => 'required|min:3|max:20'
+            'nombreCat' => 'required|min:3|max:20|unique:categorias,nombreCat,NULL,id,deleted_at,NULL'
         ];
     }
 
     public function messages(){
         return [
+            'nombreCat.unique' => 'Ya existe esta categoría',
             'nombreCat.required' => 'Indique el nombre de la categoría',
             'nombreCat.min' => 'Nombre de categoría debe tener como mínimo 3 letras',
             'nombreCat.max' => 'Nombre de categoría debe tener como máximo 20 letras'

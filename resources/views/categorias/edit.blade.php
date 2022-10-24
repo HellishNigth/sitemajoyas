@@ -19,12 +19,22 @@
             <div class="card">
                 <div class="card-header">Formulario de Edición</div>
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-warning">
+                            <p>Por favor solucione los siguientes problemas:</p>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                     @endif
                     <form method="POST" action="{{route('categorias.update',$categoria->id)}}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-group">
                             <label for="nombreCat">Nombre Categoría:</label>
-                            <input type="text" id="nombreCat" name="nombreCat" class="form-control" value="{{$categoria->nombreCat}}">
+                            <input type="text" id="nombreCat" name="nombreCat" value="{{$categoria->nombreCat}}" class="form-control @error('nombreCat') is-invalid @enderror">
                         </div>
                         <div class="form-group">
                             <div class="row">

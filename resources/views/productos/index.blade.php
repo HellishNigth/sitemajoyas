@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="descripcionProd">Descripción:</label>
-                        <input type="text" id="descripcionProd" name="descripcionProd" class="form-control @error('descripcionProd') is-invalid @enderror" value="{{old('descripcionProd')}}">
+                        <input type="text" id="descripcionProd" name="descripcionProd" class="form-control" value="{{old('descripcionProd')}}">
                     </div>
                     <div class="form-group">
                         <label for="cantidadProd">Cantidad:</label>
@@ -44,11 +44,11 @@
                     </div>
                     <div class="form-group">
                         <label for="precioProd">Precio:</label>
-                        <input type="number" id="precioProd" name="precioProd" class="form-control @error('precioProd') is-invalid @enderror">
+                        <input type="number" id="precioProd" name="precioProd" class="form-control @error('precioProd') is-invalid @enderror" min="1" max="999999999">
                     </div>
                     <div class="form-group">
                         <label for="fechaIngreso">Fecha Ingreso:</label>
-                        <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control">
+                        <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control @error('fechaIngreso') is-invalid @enderror">
                     </div>
                     <div class="form-group">
                         <label for="imagenProd">Imagen</label>

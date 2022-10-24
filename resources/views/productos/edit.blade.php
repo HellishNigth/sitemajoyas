@@ -22,12 +22,22 @@
             <div class="card">
                 <div class="card-header">Formulario de Edición</div>
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-warning">
+                            <p>Por favor solucione los siguientes problemas:</p>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                     @endif
                     <form method="POST" action="{{route('productos.update',$producto->id)}}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-group">
                             <label for="nombreProd">Nombre Producto:</label>
-                            <input type="text" id="nombreProd" name="nombreProd" class="form-control" value="{{$producto->nombreProd}}">
+                            <input type="text" id="nombreProd" name="nombreProd" class="form-control @error('nombreProd') is-invalid @enderror" value="{{$producto->nombreProd}}">
                         </div>
                         <div class="form-group">
                             <label for="descripcionProd">Descripción:</label>
@@ -35,15 +45,15 @@
                         </div>
                         <div class="form-group">
                             <label for="cantidadProd">Cantidad:</label>
-                            <input type="number" id="cantidadProd" name="cantidadProd" class="form-control" min="1" max="99" value="{{$producto->cantidadProd}}">
+                            <input type="number" id="cantidadProd" name="cantidadProd" class="form-control @error('cantidadProd') is-invalid @enderror" min="1" max="99" value="{{$producto->cantidadProd}}">
                         </div>
                         <div class="form-group">
                             <label for="precioProd">Precio:</label>
-                            <input type="number" id="precioProd" name="precioProd" class="form-control" value="{{$producto->precioProd}}">
+                            <input type="number" id="precioProd" name="precioProd" class="form-control @error('precioProd') is-invalid @enderror" min="1" max="999999999" value="{{$producto->precioProd}}">
                         </div>
                         <div class="form-group">
                             <label for="fechaIngreso">Fecha Ingreso:</label>
-                            <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control" value="{{$producto->fechaIngreso}}">
+                            <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control @error('fechaIngreso') is-invalid @enderror">
                         </div>
                         <div class="form-group">
                             <label for="imagenProd">Imagen</label>

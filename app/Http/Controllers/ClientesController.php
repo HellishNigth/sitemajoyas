@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Http\Requests\ClientesRequest;
+use App\Http\Requests\ClientesEditarRequest;
 
 class ClientesController extends Controller
 {
@@ -34,7 +35,7 @@ class ClientesController extends Controller
         return view('clientes.edit',compact('cliente'));
     }
 
-    public function update(Cliente $cliente,Request $request){
+    public function update(Cliente $cliente,ClientesEditarRequest $request){
         $cliente->rut_cliente = $request->rut_cliente;
         $cliente->nombreClie = $request->nombreClie;
         $cliente->apellidoClie = $request->apellidoClie;

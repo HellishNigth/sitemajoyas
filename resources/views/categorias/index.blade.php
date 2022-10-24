@@ -32,7 +32,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="nombreCat">Nombre Categoría:</label>
-                        <input type="text" id="nombreCat" name="nombreCat" class="form-control @error('nombre') is-invalid @enderror" value="{{old('nombreCat')}}">
+                        <input type="text" id="nombreCat" name="nombreCat" class="form-control @error('nombreCat') is-invalid @enderror" value="{{old('nombreCat')}}">
                     </div>
                     <div class="form-group">
                         <div class="row">
@@ -70,7 +70,7 @@
                     <td class="d-none d-lg-table-cell">{{count($categoria->productos)}}</td>
                     <td class="text-center" style="width:1rem">
                         <!--Borrar-->
-                        <span data-toggle="tooltip" data-placement="top" title="Borrar categoria">
+                        <span data-toggle="tooltip" data-placement="top" title="Borrar Categoria">
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#equipoBorrarModal{{$categoria->id}}">
                                 <i class="far fa-trash-alt"></i>
                             </button>

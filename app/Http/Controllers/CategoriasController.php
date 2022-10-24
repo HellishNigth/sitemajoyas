@@ -75,7 +75,7 @@ class CategoriasController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Categoria $categoria,Request $request){
+    public function update(Categoria $categoria,CategoriasRequest $request){
         $categoria->nombreCat = $request->nombreCat;
         $categoria->save();
         return redirect()->route('categorias.index');

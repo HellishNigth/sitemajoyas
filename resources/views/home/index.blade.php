@@ -52,8 +52,8 @@
             <div class="card-body">
                 <h5 class="card-title">Proveedores</h5>
                 <div class="btn-group d-flex">
-                    <button class="btn btn-outline-success">Ver</button>
-                    <button class="btn btn-outline-success">Agregar</button>
+                    <a href="{{route('proveedores.index')}}" class="btn btn-outline-success">Ver</a>
+                    <a href="{{route('proveedores.index')}}" class="btn btn-outline-success">Agregar</a>
                 </div>
             </div>
         </div>

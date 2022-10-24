@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductosRequest;
+use App\Http\Requests\ProductosEditarRequest;
 
 class ProductosController extends Controller
 {
@@ -43,7 +44,7 @@ class ProductosController extends Controller
         return view('productos.edit',compact('producto','categorias'));
     }
 
-    public function update(Producto $producto,Request $request){
+    public function update(Producto $producto,ProductosEditarRequest $request){
         $producto->nombreProd = $request->nombreProd;
         $producto->descripcionProd = $request->descripcionProd;
         $producto->cantidadProd = $request->cantidadProd;

@@ -52,8 +52,8 @@
                 <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='partidos') active @endif">
                   <a class="nav-link" href="#">Compras</a>
               </li>
-              <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='partidos') active @endif">
-                <a class="nav-link" href="#">Proveedores</a>
+              <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='proveedores') active @endif">
+                <a class="nav-link" href="{{route('proveedores.index')}}">Proveedores</a>
               </li>
               <li class="nav-item @if(Route::current()->getName()!='home.index' && Request::segments()[0]=='partidos') active @endif">
                 <a class="nav-link" href="#">Ajustar Stock</a>

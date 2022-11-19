@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="direccionClie">Direccion Cliente:</label>
-                            <input type="text" id="direccionClie" name="direccionClie" class="form-control @error('direccionClie') is-invalid @enderror" min="1" max="99" value="{{$cliente->direccionClie}}">
+                            <input type="text" id="direccionClie" name="direccionClie" class="form-control @error('direccionClie') is-invalid @enderror" value="{{$cliente->direccionClie}}">
                         </div>
                         <div class="form-group">
                             <label for="emailClie">Email Cliente:</label>

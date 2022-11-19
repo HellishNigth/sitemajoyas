@@ -36,8 +36,8 @@ class ProveedoresEditarRequest extends FormRequest
     public function messages(){
         return[
             'rut_proveedor.required' => 'Indique RUT del proveedor',
-            'rut_proveedor.min' => 'RUT del proveedor debe tener mínimo 10 digitos',
-            'rut_proveedor.max' => 'RUT del proveedor debe tener máximo 10 digitos',
+            'rut_proveedor.min' => 'RUT del proveedor debe tener mínimo 9 digitos',
+            'rut_proveedor.max' => 'RUT del proveedor debe tener máximo 9 digitos',
             'nombreProv.required' => 'Indique el nombre del proveedor',
             'nombreProv.min' => 'Nombre del proveedor debe tener como mínimo 3 letras',
             'nombreProv.max' => 'Nombre del proveedor debe tener como máximo 20 letras',

@@ -14,4 +14,8 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria');
     }
+    public function ventas(){
+        //modelo al que apunta,nombre tabla pivote
+        return $this->belongsToMany(Venta::class,'producto_venta','venta_id','producto_id');
+    }
 }

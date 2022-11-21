@@ -10,4 +10,8 @@ class Cliente extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = 'clientes';
+
+    public function ventas(){
+        return $this->hasMany('App\Models\Venta');
+    }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\VentasController;
 
 
 
@@ -66,3 +67,7 @@ Route::post('/proveedores',[ProveedoresController::class, 'store'])->name('prove
 Route::delete('/proveedores/{proveedor}',[ProveedoresController::class, 'destroy'])->name('proveedores.destroy');
 Route::get('/proveedores/{proveedor}/edit',[ProveedoresController::class, 'edit'])->name('proveedores.edit');
 Route::put('/proveedores/{proveedor}',[ProveedoresController::class, 'update'])->name('proveedores.update');
+
+Route::get('/ventas',[VentasController::class,'index'])->name('ventas.index');
+Route::post('/ventas/store',[VentasController::class, 'store'])->name('ventas.store');
+Route::delete('/ventas/{venta}',[VentasController::class, 'destroy'])->name('ventas.destroy');

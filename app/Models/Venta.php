@@ -12,7 +12,7 @@ class Venta extends Model
     protected $table = 'ventas';
 
     public function productos(){
-        return $this->belongsToMany(Producto::class, 'producto_venta', 'venta_id', 'producto_id');
+        return $this->belongsToMany('App\Models\Producto');
     }
     public function cliente(){
         return $this->belongsTo('App\Models\Cliente'); 

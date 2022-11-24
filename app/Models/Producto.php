@@ -16,6 +16,6 @@ class Producto extends Model
     }
     public function ventas(){
         //modelo al que apunta,nombre tabla pivote
-        return $this->belongsToMany(Venta::class,'producto_venta','venta_id','producto_id');
+        return $this->belongsToMany('App\Models\Venta');
     }
 }

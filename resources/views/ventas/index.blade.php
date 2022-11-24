@@ -87,7 +87,7 @@
                 <tr>
                     <td>{{$num+1}}</td>
                     <td class="d-none d-lg-table-cell">{{$producto->nombreProd}}</td>
-                    <td class="d-none d-lg-table-cell">{{$cliente->nombreClie}}  {{$cliente->apellidoClie}}</td>
+                    <td class="d-none d-lg-table-cell">{{$venta->cliente->nombreClie}}  {{$venta->cliente->apellidoClie}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->cantidad}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->totalVenta}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->fechaVenta}}</td>

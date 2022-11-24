@@ -57,6 +57,7 @@ class VentasController extends Controller
 
         $venta->totalVenta = $totalVenta;
         $venta->save();
+        $venta->productos()->attach($request->producto);
         $venta->productos()->sync($request->producto);
 
         

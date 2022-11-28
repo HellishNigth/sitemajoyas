@@ -10,9 +10,11 @@ class Producto extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = 'productos';
+    protected $fillable = ['cantidadProd'];
 
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria');
+        
     }
     public function ventas(){
         //modelo al que apunta,nombre tabla pivote

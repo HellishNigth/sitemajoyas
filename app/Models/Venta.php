@@ -10,6 +10,7 @@ class Venta extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = 'ventas';
+    
 
     public function productos(){
         return $this->belongsToMany('App\Models\Producto');

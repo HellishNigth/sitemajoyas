@@ -86,7 +86,7 @@
             @foreach ($ventas as $num=>$venta)
                 <tr>
                     <td>{{$num+1}}</td>
-                    <td class="d-none d-lg-table-cell">{{$producto->nombreProd}}</td>
+                    <td class="d-none d-lg-table-cell">{{$venta->productos->first()->nombreProd}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->cliente->nombreClie}}  {{$venta->cliente->apellidoClie}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->cantidad}}</td>
                     <td class="d-none d-lg-table-cell">{{$venta->totalVenta}}</td>

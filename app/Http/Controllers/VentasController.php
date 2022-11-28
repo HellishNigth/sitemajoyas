@@ -17,7 +17,7 @@ class VentasController extends Controller
     public function index()
     {
         $ventas = Venta::orderBy('fechaVenta')->get();
-        $productos = Producto::all();
+        $productos = Producto::orderBy('nombreProd')->get();
         $clientes = Cliente::all();
         return view('ventas.index',compact('ventas','productos','clientes'));
     }
@@ -43,8 +43,8 @@ class VentasController extends Controller
         $venta = new Venta();
         $totalVenta = 0;
         $cantidad = 0;
-        $cantidadVenta = $request->cantidad;
-        $venta->cantidad = $cantidadVenta;
+        
+        $venta->cantidad = $request->cantidad;
         $venta->cliente_id = $request->cliente;
         
         $venta->fechaVenta = $request->fechaVenta;
@@ -59,10 +59,10 @@ class VentasController extends Controller
         $venta->save();
         $venta->productos()->attach($request->producto);
         $venta->productos()->sync($request->producto);
-
-        
+        $producto = Producto::findOrFail($request->producto);
+        $cantidadVenta = $producto->cantidadProd - $request->cantidad;
         //$cantidad = ($producto->cantidadProd - $request->cantidad);
-        //$producto->update(["cantidadProd" => $cantidad]);
+        $producto->update(["cantidadProd" => $cantidadVenta]);
     
         return redirect()->route('ventas.index');
     }

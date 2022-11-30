@@ -6,6 +6,7 @@ use App\Models\Venta;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Cliente;
+use App\Http\Requests\VentasRequest;
 
 class VentasController extends Controller
 {
@@ -38,7 +39,7 @@ class VentasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VentasRequest $request)
     {
         $venta = new Venta();
         $totalVenta = 0;

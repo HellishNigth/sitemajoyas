@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Venta;
 use Illuminate\Http\Request;
+use App\Models\Compra;
 use App\Models\Producto;
-use App\Models\Cliente;
-use App\Http\Requests\VentasRequest;
+use App\Models\Proveedor;
 
-class VentasController extends Controller
+class ComprasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,10 @@ class VentasController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::orderBy('fechaVenta')->get();
+        $compras = Compra::orderBy('fechaCompra')->get();
         $productos = Producto::orderBy('nombreProd')->get();
-        $clientes = Cliente::all();
-        return view('ventas.index',compact('ventas','productos','clientes'));
+        $proveedores = Proveedor::all();
+        return view('compras.index',compact('compras','productos','proveedores'));
     }
 
     /**
@@ -41,45 +40,45 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        $venta = new Venta();
-        $totalVenta = 0;
+        $compra = new Compra();
+        $totalCompra = 0;
         $cantidad = 0;
         
-        $venta->cantidad = $request->cantidad;
-        $venta->cliente_id = $request->cliente;
+        $compra->cantidad = $request->cantidad;
+        $compra->proveedor_id = $request->proveedor;
         
-        $venta->fechaVenta = $request->fechaVenta;
+        $compra->fechaCompra = $request->fechaCompra;
         
         $producto = Producto::findOrFail($request->producto);
-        $cantidadProd = $producto->cantidadProd;
+        //$cantidadProd = $producto->cantidadProd;
         $this->validate($request, [
-            'cantidad' => 'required|gte:1|lte:' . $cantidadProd,
-            'fechaVenta'=>'required|date_equals:today'
+            'cantidad' => 'required|gte:1',
+            'fechaCompra'=>'required|date_equals:today'
         ]);
         //foreach($producto as $prod){
-        $totalVenta += $request->cantidad * $producto->precioProd;
+        $totalCompra += $request->cantidad * $producto->precioProd;
         //}
         //return $totalVenta;
 
-        $venta->totalVenta = $totalVenta;
-        $venta->save();
-        $venta->productos()->attach($request->producto);
-        $venta->productos()->sync($request->producto);
+        $compra->totalCompra = $totalCompra;
+        $compra->save();
+        $compra->productos()->attach($request->producto);
+        $compra->productos()->sync($request->producto);
         $producto = Producto::findOrFail($request->producto);
-        $cantidadVenta = $producto->cantidadProd - $request->cantidad;
+        $cantidadCompra = $producto->cantidadProd + $request->cantidad;
         //$cantidad = ($producto->cantidadProd - $request->cantidad);
-        $producto->update(["cantidadProd" => $cantidadVenta]);
+        $producto->update(["cantidadProd" => $cantidadCompra]);
         
-        return redirect()->route('ventas.index');
+        return redirect()->route('compras.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function show(Venta $venta)
+    public function show(Compra $compra)
     {
         //
     }
@@ -87,10 +86,10 @@ class VentasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Venta $venta)
+    public function edit(Compra $compra)
     {
         //
     }
@@ -99,10 +98,10 @@ class VentasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venta $venta)
+    public function update(Request $request, Compra $compra)
     {
         //
     }
@@ -110,12 +109,12 @@ class VentasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Venta $venta)
+    public function destroy(Compra $compra)
     {
-        $venta->delete();
-        return redirect()->route('ventas.index');
+        $compra->delete();
+        return redirect()->route('compras.index');
     }
 }

@@ -11,4 +11,8 @@ class Proveedor extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = 'proveedores';
+
+    public function compras(){
+        return $this->hasMany('App\Models\Compra');
+    }
 }

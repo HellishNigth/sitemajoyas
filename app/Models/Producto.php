@@ -20,4 +20,8 @@ class Producto extends Model
         //modelo al que apunta,nombre tabla pivote
         return $this->belongsToMany('App\Models\Venta');
     }
+    public function compras(){
+        //modelo al que apunta,nombre tabla pivote
+        return $this->belongsToMany('App\Models\Compra');
+    }
 }

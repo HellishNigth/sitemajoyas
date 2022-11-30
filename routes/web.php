@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\VentasController;
+use App\Http\Controllers\ComprasController;
 
 
 
@@ -71,3 +72,7 @@ Route::put('/proveedores/{proveedor}',[ProveedoresController::class, 'update'])-
 Route::get('/ventas',[VentasController::class,'index'])->name('ventas.index');
 Route::post('/ventas/store',[VentasController::class, 'store'])->name('ventas.store');
 Route::delete('/ventas/{venta}',[VentasController::class, 'destroy'])->name('ventas.destroy');
+
+Route::get('/compras',[ComprasController::class,'index'])->name('compras.index');
+Route::post('/compras/store',[ComprasController::class, 'store'])->name('compras.store');
+Route::delete('/compras/{compra}',[ComprasController::class, 'destroy'])->name('compras.destroy');

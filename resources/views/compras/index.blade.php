@@ -5,7 +5,7 @@
 @section('contenido-principal')
 <div class="row">
     <div class="col">
-        <h3>Ventas</h3>
+        <h3>Compras</h3>
     </div>
 </div>
 <div class="row">
@@ -13,7 +13,7 @@
     <div class="col-12 col-lg-4 order-lg-1">
         <div class="card">
             <div class="card-header">
-                Agregar Venta
+                Agregar Compra
             </div>
             <div class="card-body">
                 {{-- Validacion --}}
@@ -28,7 +28,7 @@
                     </div>
                 @endif
                 {{-- Validacion --}}
-                <form method="POST" action="{{route('ventas.store')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('compras.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="producto">Producto:</label>
@@ -39,10 +39,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="cliente">Cliente:</label>
-                        <select name="cliente" id="cliente" class="form-control @error('cliente') is-invalid @enderror">
-                            @foreach ($clientes as $cliente )
-                                <option value="{{$cliente->id}}">{{$cliente->nombreClie}}</option>
+                        <label for="proveedor">Proveedor:</label>
+                        <select name="proveedor" id="proveedor" class="form-control @error('proveedor') is-invalid @enderror">
+                            @foreach ($proveedores as $proveedor )
+                                <option value="{{$proveedor->id}}">{{$proveedor->nombreProv}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -51,8 +51,8 @@
                         <input type="number" id="cantidad" name="cantidad" class="form-control @error('cantidad') is-invalid @enderror"  min="1" max="99">
                     </div>
                     <div class="form-group">
-                        <label for="fechaVenta">Fecha Venta:</label>
-                        <input type="date" id="fechaVenta" name="fechaVenta" class="form-control @error('fechaVenta') is-invalid @enderror">
+                        <label for="fechaCompra">Fecha Compra:</label>
+                        <input type="date" id="fechaCompra" name="fechaCompra" class="form-control @error('fechaCompra') is-invalid @enderror">
                     </div>
                     <div class="form-group">
                         <div class="row">
@@ -76,37 +76,37 @@
                 <tr>
                     <th>ID</th>
                     <th class="d-none d-lg-table-cell">Producto</th>
-                    <th class="d-none d-lg-table-cell">Cliente</th>
+                    <th class="d-none d-lg-table-cell">Proveedor</th>
                     <th class="d-none d-lg-table-cell">Cantidad</th>
                     <th class="d-none d-lg-table-cell">Total</th>
                     <th class="d-none d-lg-table-cell">Fecha</th>
                     <th colspan="1">Acción</th>
                 </tr>
             </thead>
-            @foreach ($ventas as $num=>$venta)
+            @foreach ($compras as $num=>$compra)
                 <tr>
                     <td>{{$num+1}}</td>
-                    <td class="d-none d-lg-table-cell">{{$venta->productos->first()->nombreProd}}</td>
-                    <td class="d-none d-lg-table-cell">{{$venta->cliente->nombreClie}}  {{$venta->cliente->apellidoClie}}</td>
-                    <td class="d-none d-lg-table-cell">{{$venta->cantidad}}</td>
-                    <td class="d-none d-lg-table-cell">{{$venta->totalVenta}}</td>
-                    <td class="d-none d-lg-table-cell">{{$venta->fechaVenta}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->productos->first()->nombreProd}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->proveedor->nombreProv}}  {{$compra->proveedor->apellidoClie}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->cantidad}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->totalCompra}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->fechaCompra}}</td>
                     <td class="text-center" style="width:1rem">
                         <!--Borrar-->
-                        <span data-toggle="tooltip" data-placement="top" title="Borrar Venta">
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ventaBorrarModal{{$venta->id}}">
+                        <span data-toggle="tooltip" data-placement="top" title="Borrar Compra">
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ventaBorrarModal{{$compra->id}}">
                                 <i class="far fa-trash-alt"></i>
                             </button>
                         </span>
                         <!--Borrar-->
                     </td>
                 </tr>
-                <!-- Modal Borrar Venta-->
-                <div class="modal fade" id="ventaBorrarModal{{$venta->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Modal Borrar Compra-->
+                <div class="modal fade" id="ventaBorrarModal{{$compra->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Borrar Venta</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Borrar Compra</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -114,15 +114,15 @@
                             <div class="modal-body">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-exclamation-circle text-danger mr-2" style="font-size: 2rem"></i>
-                                    ¿Desea borrar la venta?
+                                    ¿Desea borrar la compra?
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <form method="POST" action="{{route('ventas.destroy',$venta->id)}}">
+                                <form method="POST" action="{{route('compras.destroy',$compra->id)}}">
                                     @csrf
                                     @method('delete')
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-danger">Borrar Venta</button>
+                                    <button type="submit" class="btn btn-danger">Borrar Compra</button>
                                 </form>
                             </div>
                         </div>

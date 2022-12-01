@@ -10,6 +10,9 @@ use App\Http\Requests\VentasRequest;
 
 class VentasController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\DigitoVerificadorRut;
 
 class ClientesRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class ClientesRequest extends FormRequest
     public function rules()
     {
         return [
-            'rut_cliente'=>'required|min:9|max:10|unique:clientes,rut_cliente,NULL,id,deleted_at,NULL',
+            'rut_cliente'=> ['bail','required','unique:clientes,rut_cliente,NULL,id,deleted_at,NULL','regex:/^(\d{7,8}-[\dkK])$/',new DigitoVerificadorRut],
             'nombreClie'=>'required|min:3|max:20',
             'apellidoClie'=>'required|min:3|max:20',
             'direccionClie'=>'required|min:8|max:50',
@@ -37,8 +38,7 @@ class ClientesRequest extends FormRequest
         return[
             'rut_cliente.unique'=>'Cliente ya existe',
             'rut_cliente.required'=>'Se necesita rut del cliente',
-            'rut_cliente.min'=>'El rut del cliente debe tener minimo 9 caracteres',
-            'rut_cliente.max'=>'El rut del cliente debe tener maximo 10 caracteres',
+            'rut_cliente.regex'=>'Indique RUT sin puntos, con guión y con digito verificador',
             'nombreClie.required'=>'Se necesita nombre del cliente',
             'nombreClie.min'=>'El nombre del cliente debe tener minimo de 3 caracteres',
             'nombreClie.max'=>'El nombre del cliente debe tener maximo de 20 caracteres',

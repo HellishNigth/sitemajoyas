@@ -86,8 +86,8 @@
             @foreach ($compras as $num=>$compra)
                 <tr>
                     <td>{{$num+1}}</td>
-                    <td class="d-none d-lg-table-cell">{{$compra->productos->first()->nombreProd}}</td>
-                    <td class="d-none d-lg-table-cell">{{$compra->proveedor->nombreProv}}  {{$compra->proveedor->apellidoClie}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->productos->first()!=null?$compra->productos->first()->nombreProd:'Producto Eliminado'}}</td>
+                    <td class="d-none d-lg-table-cell">{{$compra->proveedor!=null?$compra->proveedor->nombreProv. ' ' .$compra->proveedor->apellidoProv:'Proveedor Eliminado'}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->cantidad}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->totalCompra}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->fechaCompra}}</td>

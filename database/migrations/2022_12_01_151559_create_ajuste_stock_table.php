@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('ajuste_stock', function (Blueprint $table) {
             $table->id();
-            $table->string('rut_cliente',10);
-            $table->string('nombreClie',50);
-            $table->string('apellidoClie',50);
-            $table->string('direccionClie',100);
-            $table->string('emailClie',50);
-            $table->string('telefonoClie',12);
+            $table->date('fechaAjuste');
+            $table->string('tipoAjuste',20);
+            $table->tinyInteger('cantidadAjuste');
+            $table->string('motivo',200);
+            $table->softDeletes();
             $table->timestamps();
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('ajuste_stock');
     }
 };

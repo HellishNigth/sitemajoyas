@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\DigitoVerificadorRut;
 
 class ProveedoresEditarRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class ProveedoresEditarRequest extends FormRequest
     public function rules()
     {
         return [
-            'rut_proveedor' => 'required|min:9|max:10',
+            'rut_proveedor' => ['bail','required','regex:/^(\d{7,8}-[\dkK])$/',new DigitoVerificadorRut],
             'nombreProv' => 'required|min:3|max:20',
             'apellidoProv' => 'required|min:3|max:20',
             'direccionProv' => 'required|min:8|max:50',
@@ -36,8 +37,7 @@ class ProveedoresEditarRequest extends FormRequest
     public function messages(){
         return[
             'rut_proveedor.required' => 'Indique RUT del proveedor',
-            'rut_proveedor.min' => 'RUT del proveedor debe tener mínimo 9 digitos',
-            'rut_proveedor.max' => 'RUT del proveedor debe tener máximo 9 digitos',
+            'rut_proveedor.regex'=>'Indique RUT sin puntos, con guión y con digito verificador',
             'nombreProv.required' => 'Indique el nombre del proveedor',
             'nombreProv.min' => 'Nombre del proveedor debe tener como mínimo 3 letras',
             'nombreProv.max' => 'Nombre del proveedor debe tener como máximo 20 letras',

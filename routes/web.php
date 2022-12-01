@@ -11,6 +11,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\AjustesController;
 
 
 
@@ -76,3 +77,7 @@ Route::delete('/ventas/{venta}',[VentasController::class, 'destroy'])->name('ven
 Route::get('/compras',[ComprasController::class,'index'])->name('compras.index');
 Route::post('/compras/store',[ComprasController::class, 'store'])->name('compras.store');
 Route::delete('/compras/{compra}',[ComprasController::class, 'destroy'])->name('compras.destroy');
+
+Route::get('/ajustes',[AjustesController::class,'index'])->name('ajustes.index');
+Route::post('/ajustes/store',[AjustesController::class, 'store'])->name('ajustes.store');
+Route::delete('/ajustes/{ajuste}',[AjustesController::class, 'destroy'])->name('ajustes.destroy');

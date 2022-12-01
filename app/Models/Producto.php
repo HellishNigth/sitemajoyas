@@ -24,4 +24,7 @@ class Producto extends Model
         //modelo al que apunta,nombre tabla pivote
         return $this->belongsToMany('App\Models\Compra');
     }
+    public function ajustes(){
+        return $this->hasMany('App\Models\AjusteStock');
+    }
 }

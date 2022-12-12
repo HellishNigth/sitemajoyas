@@ -103,7 +103,7 @@
                     <td class="d-none d-lg-table-cell">{{$producto->nombreProd}}</td>
                     <td class="d-none d-lg-table-cell">{{$producto->descripcionProd}}</td>
                     <td class="d-none d-lg-table-cell">{{$producto->cantidadProd}}</td>
-                    <td class="d-none d-lg-table-cell">{{$producto->precioProd}}</td>
+                    <td class="d-none d-lg-table-cell">${{$producto->precioProd}}</td>
                     <td class="d-none d-lg-table-cell">{{$producto->fechaIngreso}}</td>
                     <td class="d-none d-lg-table-cell">{{$producto->categoria!=null?$producto->categoria->nombreCat: 'Sin categoria'}}</td>
                     <td class="text-center" style="width:1rem">

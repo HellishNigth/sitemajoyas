@@ -12,6 +12,7 @@ use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\AjustesController;
+use App\Http\Controllers\EstadisticasController;
 
 
 
@@ -81,3 +82,45 @@ Route::delete('/compras/{compra}',[ComprasController::class, 'destroy'])->name('
 Route::get('/ajustes',[AjustesController::class,'index'])->name('ajustes.index');
 Route::post('/ajustes/store',[AjustesController::class, 'store'])->name('ajustes.store');
 Route::delete('/ajustes/{ajuste}',[AjustesController::class, 'destroy'])->name('ajustes.destroy');
+
+Route::get('/estadisticas/stock',[EstadisticasController::class,'stockProductos'])->name('estadisticas.stock');
+Route::get('/estadisticas/descargar-stock',[EstadisticasController::class,'descargarStockProductos'])->name('estadisticas.descargar-stock');
+
+Route::get('/estadisticas/reporte',[EstadisticasController::class,'reporteMensual'])->name('estadisticas.reporte');
+Route::get('/estadisticas/descargar-reporte',[EstadisticasController::class,'descargarReporteMensual'])->name('estadisticas.descargar-reporte');
+
+Route::get('/estadisticas/reporte/noviembre',[EstadisticasController::class,'reporteMensualNoviembre'])->name('estadisticas.noviembre');
+Route::get('/estadisticas/descargar-reporte-noviembre',[EstadisticasController::class,'descargarReporteNoviembre'])->name('estadisticas.descargar-reporte-noviembre');
+
+Route::get('/estadisticas/reporte/diciembre',[EstadisticasController::class,'reporteMensualDiciembre'])->name('estadisticas.diciembre');
+Route::get('/estadisticas/descargar-reporte-diciembre',[EstadisticasController::class,'descargarReporteDiciembre'])->name('estadisticas.descargar-reporte-diciembre');
+
+Route::get('/estadisticas/reporte/enero',[EstadisticasController::class,'reporteMensualEnero'])->name('estadisticas.enero');
+Route::get('/estadisticas/descargar-reporte-enero',[EstadisticasController::class,'descargarReporteEnero'])->name('estadisticas.descargar-reporte-enero');
+
+Route::get('/estadisticas/reporte/febrero',[EstadisticasController::class,'reporteMensualFebrero'])->name('estadisticas.febrero');
+Route::get('/estadisticas/descargar-reporte-febrero',[EstadisticasController::class,'descargarReporteFebrero'])->name('estadisticas.descargar-reporte-febrero');
+
+Route::get('/estadisticas/reporte/marzo',[EstadisticasController::class,'reporteMensualMarzo'])->name('estadisticas.marzo');
+Route::get('/estadisticas/descargar-reporte-marzo',[EstadisticasController::class,'descargarReporteMarzo'])->name('estadisticas.descargar-reporte-marzo');
+
+Route::get('/estadisticas/reporte/abril',[EstadisticasController::class,'reporteMensualAbril'])->name('estadisticas.abril');
+Route::get('/estadisticas/descargar-reporte-abril',[EstadisticasController::class,'descargarReporteAbril'])->name('estadisticas.descargar-reporte-abril');
+
+Route::get('/estadisticas/reporte/mayo',[EstadisticasController::class,'reporteMensualMayo'])->name('estadisticas.mayo');
+Route::get('/estadisticas/descargar-reporte-mayo',[EstadisticasController::class,'descargarReporteMayo'])->name('estadisticas.descargar-reporte-mayo');
+
+Route::get('/estadisticas/reporte/junio',[EstadisticasController::class,'reporteMensualJunio'])->name('estadisticas.junio');
+Route::get('/estadisticas/descargar-reporte-junio',[EstadisticasController::class,'descargarReporteJunio'])->name('estadisticas.descargar-reporte-junio');
+
+Route::get('/estadisticas/reporte/julio',[EstadisticasController::class,'reporteMensualJulio'])->name('estadisticas.julio');
+Route::get('/estadisticas/descargar-reporte-julio',[EstadisticasController::class,'descargarReporteJulio'])->name('estadisticas.descargar-reporte-julio');
+
+Route::get('/estadisticas/reporte/agosto',[EstadisticasController::class,'reporteMensualAgosto'])->name('estadisticas.agosto');
+Route::get('/estadisticas/descargar-reporte-agosto',[EstadisticasController::class,'descargarReporteAgosto'])->name('estadisticas.descargar-reporte-agosto');
+
+Route::get('/estadisticas/reporte/septiembre',[EstadisticasController::class,'reporteMensualSeptiembre'])->name('estadisticas.septiembre');
+Route::get('/estadisticas/descargar-reporte-septiembre',[EstadisticasController::class,'descargarReporteSeptiembre'])->name('estadisticas.descargar-reporte-septiembre');
+
+Route::get('/estadisticas/reporte/octubre',[EstadisticasController::class,'reporteMensualOctubre'])->name('estadisticas.octubre');
+Route::get('/estadisticas/descargar-reporte-octubre',[EstadisticasController::class,'descargarReporteOctubre'])->name('estadisticas.descargar-reporte-octubre');

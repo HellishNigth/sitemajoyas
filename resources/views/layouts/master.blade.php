@@ -60,10 +60,31 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Informes
+                  Informe Stock
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Descargar Tabla de Posiciones</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-stock')}}">Descargar Stock de Productos</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Reportes Ganancias
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte')}}">Descargar Reporte de Ventas Totales</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-enero')}}">Reporte Enero</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-febrero')}}">Reporte Febrero</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-marzo')}}">Reporte Marzo</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-abril')}}">Reporte Abril</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-mayo')}}">Reporte Mayo</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-junio')}}">Reporte Junio</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-julio')}}">Reporte Julio</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-agosto')}}">Reporte Agosto</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-septiembre')}}">Reporte Septiembre</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-octubre')}}">Reporte Octubre</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-noviembre')}}">Reporte Noviembre</a>
+                  <a class="dropdown-item" href="{{route('estadisticas.descargar-reporte-diciembre')}}">Reporte Diciembre</a>
+
                 </div>
               </li>
                 <li class="nav-item dropdown">

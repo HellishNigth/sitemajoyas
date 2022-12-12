@@ -1,6 +1,7 @@
 @extends('layouts/master')
 @section('hojas-estilo')
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
 @endsection
 @section('contenido-principal')
 <div class="row">
@@ -71,25 +72,26 @@
     <!--Formulario-->
     <!--Tabla-->
     <div class="col-12 col-lg-8 mt-1 mt-lg-0">
-        <table class="table table-bordered table-striped table-hover">
+        <table data-toggle="table" data-pagination="true" data-page-size="10" data-search="true" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th class="d-none d-lg-table-cell">Producto</th>
-                    <th class="d-none d-lg-table-cell">Proveedor</th>
+                    <th data-sortable="true">ID</th>
+                    <th data-sortable="true" class="d-none d-lg-table-cell">Producto</th>
+                    <th data-sortable="true" class="d-none d-lg-table-cell">Proveedor</th>
                     <th class="d-none d-lg-table-cell">Cantidad</th>
-                    <th class="d-none d-lg-table-cell">Total</th>
-                    <th class="d-none d-lg-table-cell">Fecha</th>
+                    <th data-sortable="true" class="d-none d-lg-table-cell">Total</th>
+                    <th data-sortable="true" class="d-none d-lg-table-cell">Fecha</th>
                     <th colspan="1">Acción</th>
                 </tr>
             </thead>
+            <tbody>
             @foreach ($compras as $num=>$compra)
                 <tr>
                     <td>{{$num+1}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->productos->first()!=null?$compra->productos->first()->nombreProd:'Producto Eliminado'}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->proveedor!=null?$compra->proveedor->nombreProv. ' ' .$compra->proveedor->apellidoProv:'Proveedor Eliminado'}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->cantidad}}</td>
-                    <td class="d-none d-lg-table-cell">{{$compra->totalCompra}}</td>
+                    <td class="d-none d-lg-table-cell">${{$compra->totalCompra}}</td>
                     <td class="d-none d-lg-table-cell">{{$compra->fechaCompra}}</td>
                     <td class="text-center" style="width:1rem">
                         <!--Borrar-->
@@ -129,12 +131,15 @@
                     </div>
                 </div>
             @endforeach
+        </tbody>
         </table>
     </div>
     <!--Tabla-->                
 </div>
 @endsection
 @section('scripts')
+<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
+<script src="{{asset('js/bootstrap-table-es-CL.js')}}"></script>
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

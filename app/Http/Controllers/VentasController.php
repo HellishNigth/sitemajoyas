@@ -57,7 +57,7 @@ class VentasController extends Controller
         $cantidadProd = $producto->cantidadProd;
         $this->validate($request, [
             'cantidad' => 'required|gte:1|lte:' . $cantidadProd,
-            //'fechaVenta'=>'required|date_equals:today'
+            'fechaVenta'=>'required|date_equals:today'
         ]);
         //foreach($producto as $prod){
         $totalVenta += $request->cantidad * $producto->precioProd;

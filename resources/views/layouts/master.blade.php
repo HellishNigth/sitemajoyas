@@ -92,7 +92,6 @@
                     Configuración
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Cambiar Contraseña</a>
                     @if(Gate::allows('usuarios-listar'))
                     <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                     @endif

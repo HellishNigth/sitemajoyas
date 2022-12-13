@@ -64,8 +64,7 @@
             <div class="card-body">
                 <h5 class="card-title">Realizar una Venta</h5>
                 <div class="btn-group d-flex">
-                    <button class="btn btn-outline-success">Ver</button>
-                    <button class="btn btn-outline-success">Agregar</button>
+                    <a href="{{route('ventas.index')}}" class="btn btn-outline-success">Agregar</a>
                 </div>
             </div>
         </div>
@@ -76,7 +75,7 @@
             <div class="card-body">
                 <h5 class="card-title">Ingresar Compra</h5>
                 <div class="btn-group d-flex">
-                    <button class="btn btn-outline-success">Agregar</button>
+                    <a href="{{route('compras.index')}}" class="btn btn-outline-success">Agregar</a>
                 </div>
             </div>
         </div>

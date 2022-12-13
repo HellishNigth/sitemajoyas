@@ -34,8 +34,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::all() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -58,8 +58,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(11))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -84,8 +84,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(12))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -110,8 +110,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(1))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -136,8 +136,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(2))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -162,8 +162,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(3))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -188,8 +188,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(4))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -214,8 +214,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(5))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -240,8 +240,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(6))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -266,8 +266,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(7))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -292,8 +292,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(8))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -318,8 +318,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(9))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
@@ -344,8 +344,8 @@ class EstadisticasController extends Controller
         $reporteMensual = collect();
         foreach(Venta::whereMonth('fechaVenta', now()->month(10))->get() as $venta){
             $reporteMensual->add([
-                'nombreProd' => $venta->productos->first()->nombreProd,
-                'nombreClie' => $venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie,
+                'nombreProd' => $venta->productos->first()!=null?$venta->productos->first()->nombreProd:'Producto Eliminado',
+                'nombreClie' => $venta->cliente!=null?$venta->cliente->nombreClie.' ' .$venta->cliente->apellidoClie:'Cliente Eliminado',
                 'cantidad' => $venta->cantidad,
                 'fechaVenta' => $venta->fechaVenta,
                 'totalVenta' => $venta->totalVenta,
